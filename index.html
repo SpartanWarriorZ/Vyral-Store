@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vyral Store - Fashion & Lifestyle</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Cookie Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <p>Diese Website verwendet Cookies, um Ihnen die beste Erfahrung auf unserer Website zu bieten. <a href="#" class="privacy-link">Datenschutz lesen</a></p>
+            <button class="cookie-accept" onclick="acceptCookies()">Verstanden!</button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-promo">
+                    <span class="promo-text">Willkommen bei VyralStore</span>
+                    <span class="promo-text">Kostenloser Versand ab 75€</span>
+                    <span class="promo-text">Based in Germany</span>
+                    <span class="promo-text">14 Tage Geld-zurück-Garantie</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header-main">
+            <div class="container">
+                <!-- Titel und Actions auf gleicher Höhe -->
+                <div class="header-top-row">
+                    <!-- Actions links -->
+                    <div class="header-actions-left">
+                        <!-- Mobile Hamburger Menu Button -->
+                        <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Menü öffnen">
+                            <span class="hamburger-line"></span>
+                            <span class="hamburger-line"></span>
+                            <span class="hamburger-line"></span>
+                        </button>
+                        
+                        <div class="currency-selector">
+                            <select>
+                                <option value="EUR">EUR €</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Zentrierter Titel -->
+                    <div class="header-title">
+                        <h1 class="brand-title">Vyral Store</h1>
+                    </div>
+                    
+                    <!-- Actions rechts -->
+                    <div class="header-actions-right">
+                        <div class="user-actions">
+                            <button class="action-btn login-btn" id="loginBtn">
+                                <i class="fas fa-user"></i>
+                                <span>Anmelden</span>
+                            </button>
+                            <button class="action-btn wishlist-btn">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="action-btn cart-btn" id="cartBtn">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="cart-count">0</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation -->
+                <div class="header-navigation">
+                    <nav class="main-nav">
+                        <ul class="nav-list">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Startseite</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link">Fashion <i class="fas fa-chevron-down"></i></a>
+                                <div class="dropdown-menu">
+                                    <a href="#">Tops & Cardigans</a>
+                                    <a href="#">Pants</a>
+                                    <a href="#">Dresses</a>
+                                    <a href="#">Sets</a>
+                                    <a href="#">Denim Vibes</a>
+                                    <a href="#">Pilates Studio</a>
+                                    <a href="#">All about Summer</a>
+                                    <a href="#">Beach Sets</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Shoes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Bags</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link">Accesoires <i class="fas fa-chevron-down"></i></a>
+                                <div class="dropdown-menu">
+                                    <a href="#">Gürtel</a>
+                                    <a href="#">Hats</a>
+                                    <a href="#">Sunglasses</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Electronics</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation Overlay -->
+        <div id="mobileNavOverlay" class="mobile-nav-overlay">
+            <div class="mobile-nav-content">
+                <div class="mobile-nav-header">
+                    <h2 class="mobile-nav-title">Vyral Store</h2>
+                    <button id="closeMobileNav" class="mobile-nav-close" aria-label="Menü schließen">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <nav class="mobile-nav">
+                    <ul class="mobile-nav-list">
+                        <li class="mobile-nav-item">
+                            <a href="#" class="mobile-nav-link">Startseite</a>
+                        </li>
+                        <li class="mobile-nav-item mobile-dropdown">
+                            <a href="#" class="mobile-nav-link mobile-dropdown-toggle">
+                                Fashion <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="mobile-dropdown-menu">
+                                <li><a href="#" class="mobile-dropdown-link">Tops & Cardigans</a></li>
+                                <li><a href="#" class="mobile-dropdown-link">Pants</a></li>
+                                <li><a href="#" class="mobile-dropdown-link">Dresses</a></li>
+                                <li><a href="#" class="mobile-dropdown-link">Sets</a></li>
+                                <li><a href="#" class="mobile-dropdown-link">Denim Vibes</a></li>
+                                <li><a href="#" class="mobile-dropdown-link">Pilates Studio</a></li>
+                                <li><a href="#" class="mobile-dropdown-link">All about Summer</a></li>
+                                <li><a href="#" class="mobile-dropdown-link">Beach Sets</a></li>
+                            </ul>
+                        </li>
+                        <li class="mobile-nav-item">
+                            <a href="#" class="mobile-nav-link">Shoes</a>
+                        </li>
+                        <li class="mobile-nav-item">
+                            <a href="#" class="mobile-nav-link">Bags</a>
+                        </li>
+                        <li class="mobile-nav-item mobile-dropdown">
+                            <a href="#" class="mobile-nav-link mobile-dropdown-toggle">
+                                Accesoires <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <ul class="mobile-dropdown-menu">
+                                <li><a href="#" class="mobile-dropdown-link">Gürtel</a></li>
+                                <li><a href="#" class="mobile-dropdown-link">Hats</a></li>
+                                <li><a href="#" class="mobile-dropdown-link">Sunglasses</a></li>
+                            </ul>
+                        </li>
+                        <li class="mobile-nav-item">
+                            <a href="#" class="mobile-nav-link">Electronics</a>
+                        </li>
+                    </ul>
+                    
+                    <div class="mobile-nav-actions">
+                        <button class="mobile-action-btn" onclick="document.getElementById('loginBtn').click()">
+                            <i class="fas fa-user"></i>
+                            <span>Anmelden</span>
+                        </button>
+                        <button class="mobile-action-btn" onclick="document.getElementById('cartBtn').click()">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Warenkorb (<span class="mobile-cart-count">0</span>)</span>
+                        </button>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Login Modal -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal-content login-modal">
+            <div class="modal-header">
+                <h2>Anmelden</h2>
+                <button class="modal-close" id="closeLoginModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="login-form">
+                    <div class="form-group">
+                        <label for="email">E-Mail-Adresse</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Passwort</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="remember">
+                            <span class="checkmark"></span>
+                            Angemeldet bleiben
+                        </label>
+                        <a href="#" class="forgot-password">Passwort vergessen?</a>
+                    </div>
+                    <button type="submit" class="login-submit-btn">Anmelden</button>
+                </form>
+                <div class="modal-divider">
+                    <span>oder</span>
+                </div>
+                <div class="social-login">
+                    <button class="social-btn google-btn">
+                        <i class="fab fa-google"></i>
+                        Mit Google anmelden
+                    </button>
+                    <button class="social-btn facebook-btn">
+                        <i class="fab fa-facebook-f"></i>
+                        Mit Facebook anmelden
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <p>Noch kein Konto? <a href="#" class="register-link">Jetzt registrieren</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal-overlay" id="cartModal">
+        <div class="modal-content cart-modal">
+            <div class="modal-header">
+                <div class="cart-modal-tabs">
+                    <button class="cart-tab active" id="cartTab" data-tab="cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Warenkorb</span>
+                    </button>
+                    <button class="cart-tab" id="wishlistTab" data-tab="wishlist">
+                        <i class="fas fa-heart"></i>
+                        <span>Wishlist</span>
+                    </button>
+                </div>
+                <button class="modal-close" id="closeCartModal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Cart Tab Content -->
+                <div class="tab-content active" id="cartTabContent">
+                    <div class="cart-empty" id="cartEmpty">
+                        <div class="empty-cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3>Ihr Warenkorb ist leer</h3>
+                        <p>Fügen Sie Artikel hinzu, um mit dem Einkauf zu beginnen</p>
+                        <button class="continue-shopping-btn" id="continueShopping">Weiter einkaufen</button>
+                    </div>
+                <div class="cart-items" id="cartItems" style="display: none;">
+                    <div class="cart-item">
+                        <div class="item-image">
+                            <div class="product-placeholder"></div>
+                        </div>
+                        <div class="item-details">
+                            <h4>Beispiel Artikel</h4>
+                            <p class="item-price">29,99 €</p>
+                            <div class="quantity-controls">
+                                <button class="qty-btn minus">-</button>
+                                <span class="quantity">1</span>
+                                <button class="qty-btn plus">+</button>
+                            </div>
+                        </div>
+                        <button class="remove-item">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="cart-summary" id="cartSummary" style="display: none;">
+                    <div class="summary-row">
+                        <span>Zwischensumme:</span>
+                        <span>29,99 €</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Versand:</span>
+                        <span>Kostenlos ab 75€</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Gesamt:</span>
+                        <span>29,99 €</span>
+                    </div>
+                    <button class="checkout-btn">Zur Kasse</button>
+                </div>
+                </div>
+                
+                <!-- Wishlist Tab Content -->
+                <div class="tab-content" id="wishlistTabContent">
+                    <div class="wishlist-empty" id="wishlistEmpty">
+                        <div class="empty-wishlist-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Ihre Wishlist ist leer</h3>
+                        <p>Markieren Sie Artikel mit ♡, um sie hier zu sammeln</p>
+                        <button class="continue-shopping-btn" id="continueShoppingWishlist">Weiter einkaufen</button>
+                    </div>
+                    <div class="wishlist-items" id="wishlistItems" style="display: none;">
+                        <!-- Wishlist items will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h2 class="hero-title">Entdecke die neuesten Trends</h2>
+                <p class="hero-subtitle">Stylische Mode für jeden Anlass</p>
+                <button class="cta-button">Jetzt shoppen</button>
+            </div>
+        </section>
+
+        <!-- Coupon Section -->
+        <section class="coupon-section">
+            <div class="container">
+                <h3>List Coupon</h3>
+                <div class="coupon-codes">
+                    <div class="coupon-item">
+                        <strong>december</strong> → 20% off 14 collections
+                    </div>
+                    <div class="coupon-item">
+                        <strong>lotita</strong> → 10% off No usage limits
+                    </div>
+                </div>
+                <p class="coupon-note">Coupon code will work on checkout page</p>
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products-section">
+            <div class="container">
+                <h2 class="section-title">You may also like</h2>
+                <div class="products-grid">
+                    <div class="product-item" data-delay="0.1s">
+                        <div class="product-image-placeholder"></div>
+                        <h4>Artikel</h4>
+                    </div>
+                    <div class="product-item" data-delay="0.2s">
+                        <div class="product-image-placeholder"></div>
+                        <h4>Artikel</h4>
+                    </div>
+                    <div class="product-item" data-delay="0.3s">
+                        <div class="product-image-placeholder"></div>
+                        <h4>Artikel</h4>
+                    </div>
+                    <div class="product-item" data-delay="0.4s">
+                        <div class="product-image-placeholder"></div>
+                        <h4>Artikel</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shipping Section -->
+        <section class="shipping-section">
+            <div class="container">
+                <h3>Get shipping estimates</h3>
+                <div class="shipping-form">
+                    <select class="country-selector">
+                        <option value="">Country</option>
+                        <option value="DE">Deutschland</option>
+                        <option value="AT">Österreich</option>
+                        <option value="CH">Schweiz</option>
+                        <option value="FR">Frankreich</option>
+                        <option value="IT">Italien</option>
+                        <option value="ES">Spanien</option>
+                        <option value="NL">Niederlande</option>
+                        <option value="BE">Belgien</option>
+                        <option value="US">Vereinigte Staaten</option>
+                        <option value="GB">Vereinigtes Königreich</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#">Startseite</a></li>
+                        <li><a href="#">Fashion</a></li>
+                        <li><a href="#">Shoes</a></li>
+                        <li><a href="#">Bags</a></li>
+                        <li><a href="#">Accesoires</a></li>
+                        <li><a href="#">Electronics</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Kundenservice</h4>
+                    <ul>
+                        <li><a href="#">Kontakt</a></li>
+                        <li><a href="#">Versand</a></li>
+                        <li><a href="#">Rückgabe</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Rechtliches</h4>
+                    <ul>
+                        <li><a href="#">Impressum</a></li>
+                        <li><a href="#">Datenschutz</a></li>
+                        <li><a href="#">AGB</a></li>
+                        <li><a href="#">Widerruf</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Zahlungsmethoden</h4>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fab fa-cc-amex"></i>
+                        <i class="fab fa-apple-pay"></i>
+                        <i class="fab fa-google-pay"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 VyralStore. Alle Rechte vorbehalten</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
