@@ -201,10 +201,14 @@ function initMobileMenu() {
     checkMobileMenu();
 }
 
-// Parallax Effects - Chrome optimized
+// Parallax Effects - Cross-browser optimized
 function initParallaxEffects() {
-    // Detect Chrome for optimized handling
+    // Detect browser for optimized handling
     const isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+    const isFirefox = /Firefox/.test(navigator.userAgent);
+    const isEdge = /Edg/.test(navigator.userAgent);
+    
+    console.log('Browser detection:', { isChrome, isFirefox, isEdge });
     
     // Throttle scroll events for better performance
     let ticking = false;
@@ -214,13 +218,19 @@ function initParallaxEffects() {
         const heroSection = document.querySelector('.hero-section');
         
         if (heroSection) {
-            if (isChrome) {
-                // Chrome-optimized: Transform the ::before pseudo-element via CSS custom properties
+            if (isFirefox) {
+                // Firefox-spezifische Behandlung: Sehr sanfte Parallax-Bewegung
+                const speed = 0.1; // Viel langsamer für Firefox
+                const yPos = scrolled * speed;
+                heroSection.style.setProperty('--scroll-y', scrolled);
+                heroSection.style.setProperty('--parallax-y', `${yPos}px`);
+            } else if (isChrome || isEdge) {
+                // Webkit/Blink Browser: Nutze background-attachment: fixed + CSS Custom Properties
                 const speed = 0.3;
                 const yPos = scrolled * speed;
                 heroSection.style.setProperty('--parallax-y', `${yPos}px`);
             } else {
-                // Other browsers: Use background-position (works well in Edge/Firefox)
+                // Fallback für andere Browser: background-position
                 const speed = 0.5;
                 const yPos = scrolled * speed;
                 heroSection.style.backgroundPosition = `center ${yPos}px`;
@@ -250,7 +260,12 @@ function initParallaxEffects() {
         }
     }
     
-    window.addEventListener('scroll', requestTick, { passive: true });
+    // Firefox braucht häufigere Updates für smooth parallax
+    const scrollOptions = isFirefox ? { passive: true } : { passive: true };
+    window.addEventListener('scroll', requestTick, scrollOptions);
+    
+    // Initial call
+    updateParallax();
 }
 
 // Mobile Navigation

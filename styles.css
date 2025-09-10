@@ -903,11 +903,32 @@ body {
     --parallax-y: 0px;
 }
 
-/* Fallback for browsers that support fixed attachment well */
-@supports (background-attachment: fixed) {
+/* Firefox-spezifische Behandlung */
+@-moz-document url-prefix() {
+    .hero-section::before {
+        background-attachment: scroll !important;
+        transform: translateZ(0) translateY(var(--parallax-y, 0px)) !important;
+        will-change: transform;
+        transition: transform 0.1s ease-out; /* Sanfte Übergänge für Firefox */
+    }
+}
+
+/* Webkit/Blink Browser (Chrome, Edge, Safari) - bessere Performance */
+@supports (-webkit-background-clip: text) {
     @media (min-width: 1024px) {
         .hero-section::before {
             background-attachment: fixed;
+            transform: translateZ(0);
+        }
+    }
+}
+
+/* Fallback for other browsers */
+@supports not (-webkit-background-clip: text) {
+    @media (min-width: 1024px) {
+        .hero-section::before {
+            background-attachment: scroll;
+            transform: translateZ(0) translateY(var(--parallax-y, 0px));
         }
     }
 }
