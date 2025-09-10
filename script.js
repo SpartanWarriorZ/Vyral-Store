@@ -540,6 +540,8 @@ function initWishlist() {
     window.wishlistItems = wishlistItems;
 }
 
+// Removed responsive announcement text function - using CSS-only solution now
+
 // Brand Title Functionality
 function initBrandTitle() {
     const brandTitle = document.querySelector('.brand-title');
