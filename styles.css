@@ -18,7 +18,7 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -97,12 +97,15 @@ body {
     white-space: nowrap;
     position: relative;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .promo-slider {
     display: inline-flex;
     align-items: center;
-    gap: 40px;
+    justify-content: center;
     font-size: 12px;
     font-weight: 500;
     color: #666;
@@ -113,14 +116,23 @@ body {
 .promo-text {
     position: relative;
     flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 300px; /* Feste Breite für gleichmäßige Abstände */
+    padding: 0 10px;
 }
 
 .promo-text:not(:last-child)::after {
     content: " • ";
     color: var(--accent-color);
     font-weight: 700;
-    margin: 0 20px;
     flex-shrink: 0;
+    position: absolute;
+    right: 0; /* Am rechten Rand des Text-Bereichs */
+    top: 50%;
+    transform: translate(50%, -50%); /* 50% nach rechts = genau zwischen den Texten */
 }
 
 @keyframes infiniteScroll {
@@ -132,26 +144,36 @@ body {
 @media (min-width: 769px) {
     .promo-slider {
         animation: infiniteScroll 40s linear infinite !important;
-        gap: 80px !important;
         font-size: 14px !important;
         font-weight: 600 !important;
     }
     
+    .promo-text {
+        width: 400px !important; /* Größere feste Breite für Desktop */
+        padding: 0 15px !important;
+    }
+    
     .promo-text:not(:last-child)::after {
-        margin: 0 40px !important;
         font-size: 16px !important;
+        right: 0 !important; /* Am rechten Rand des Desktop Text-Bereichs */
+        transform: translate(50%, -50%) !important; /* Genau zwischen den Texten */
     }
 }
 
 /* Sehr große Bildschirme */
 @media (min-width: 1200px) {
     .promo-slider {
-        gap: 120px !important;
         animation-duration: 50s !important;
     }
     
+    .promo-text {
+        width: 500px !important; /* Noch größere feste Breite für große Bildschirme */
+        padding: 0 20px !important;
+    }
+    
     .promo-text:not(:last-child)::after {
-        margin: 0 60px !important;
+        right: 0 !important; /* Am rechten Rand des großen Text-Bereichs */
+        transform: translate(50%, -50%) !important; /* Genau zwischen den Texten */
     }
 }
 
@@ -1166,14 +1188,19 @@ body {
     /* Mobile Announcement Scroller - OVERRIDE DESKTOP */
     .promo-slider {
         font-size: 11px !important;
-        gap: 20px !important;
         font-weight: 500 !important;
         animation: infiniteScrollMobile 30s linear infinite !important;
     }
     
+    .promo-text {
+        width: 200px !important; /* Feste Breite für Mobile */
+        padding: 0 10px !important; /* Etwas mehr Padding für bessere Balance */
+    }
+    
     .promo-text:not(:last-child)::after {
-        margin: 0 10px !important;
         font-size: 12px !important;
+        right: 0 !important; /* Gleiche Logik wie Desktop - am rechten Rand */
+        transform: translate(50%, -50%) !important; /* Genau zwischen den Texten */
     }
     
     /* Mobile Animation - same logic but separate keyframe */
@@ -1423,12 +1450,17 @@ body {
     /* Sehr kleine Bildschirme - kompakterer Announcement */
     .promo-slider {
         font-size: 10px !important;
-        gap: 15px !important;
         animation-duration: 35s !important; /* Etwas langsamer für bessere Lesbarkeit */
     }
     
+    .promo-text {
+        width: 150px !important; /* Kompakte feste Breite für sehr kleine Bildschirme */
+        padding: 0 8px !important; /* Etwas mehr Padding für bessere Balance */
+    }
+    
     .promo-text:not(:last-child)::after {
-        margin: 0 6px !important; /* Kleinere Abstände */
+        right: 0 !important; /* Gleiche Logik wie Desktop - am rechten Rand */
+        transform: translate(50%, -50%) !important; /* Genau zwischen den Texten */
     }
     
     .hero-title {
