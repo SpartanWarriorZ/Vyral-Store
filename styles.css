@@ -1116,6 +1116,34 @@ body {
 }
 
 @media (max-width: 768px) {
+    /* Mobile Announcement Scroller */
+    .header-promo {
+        white-space: nowrap;
+        overflow: hidden;
+        gap: 0; /* Entferne gap, nutze Trenner */
+        font-size: 11px;
+        padding: 8px 0;
+        animation: mobileSlideIn 25s linear infinite; /* Langsamere Animation für Mobile */
+    }
+    
+    .promo-text {
+        display: inline;
+        margin-right: 0;
+    }
+    
+    .promo-text:not(:last-child)::after {
+        content: " • ";
+        color: var(--accent-color);
+        font-weight: 700;
+        margin: 0 15px;
+    }
+    
+    /* Mobile-spezifische Animation */
+    @keyframes mobileSlideIn {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
+    }
+    
     .header-top-row {
         flex-direction: row;
         justify-content: space-between;
@@ -1166,6 +1194,8 @@ body {
     .header-actions-right {
         order: 3;
         gap: 8px;
+        overflow: visible !important; /* Badge soll über Bereich hinaus sichtbar sein */
+        position: relative !important; /* Für Badge-Positioning */
     }
     
     /* Show mobile menu button on mobile */
@@ -1212,22 +1242,59 @@ body {
     
     .user-actions {
         gap: 5px;
+        overflow: visible !important; /* Badge soll sichtbar bleiben */
+    }
+    
+    /* Extra Platz für Cart-Button mit Badge */
+    .cart-btn {
+        overflow: visible !important;
+        position: relative !important;
     }
     
     /* Make action buttons smaller on mobile */
     .action-btn {
-        padding: 6px 8px !important;
+        padding: 0 !important;
         font-size: 16px !important;
         min-width: 36px !important;
         height: 36px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        position: relative !important;
+        overflow: visible !important; /* Wichtig: Badge soll über Rahmen hinaus sichtbar sein */
     }
     
     .action-btn span {
         display: none; /* Hide text on mobile, keep only icons */
     }
     
+    .action-btn i {
+        margin: 0 !important;
+        padding: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
     .cart-count {
-        display: block !important; /* Keep cart count visible */
+        display: flex !important; /* Keep cart count visible */
+        position: absolute !important;
+        top: -8px !important; /* Moderate Position nach oben */
+        right: -8px !important; /* Moderate Position nach rechts */
+        background: #ff4444 !important;
+        color: white !important;
+        border-radius: 10px !important; /* Leicht oval für 2-stellige Zahlen */
+        min-width: 18px !important;
+        height: 18px !important;
+        padding: 0 3px !important;
+        font-size: 10px !important;
+        font-weight: 700 !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border: 2px solid white !important;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) !important;
+        z-index: 100 !important; /* Sehr hoher z-index */
+        line-height: 1 !important;
     }
     
     /* Hide wishlist button on mobile */
@@ -1313,6 +1380,16 @@ body {
     .brand-title::before,
     .brand-title::after {
         display: none;
+    }
+    
+    /* Sehr kleine Bildschirme - kompakterer Announcement */
+    .header-promo {
+        font-size: 10px !important;
+        padding: 6px 0 !important;
+    }
+    
+    .promo-text:not(:last-child)::after {
+        margin: 0 10px !important; /* Kleinere Abstände */
     }
     
     .hero-title {
